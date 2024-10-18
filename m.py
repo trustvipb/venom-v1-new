@@ -18,6 +18,21 @@ USER_FILE = "users.txt"
 # File to store command logs
 LOG_FILE = "log.txt"
 
+# ⏳ Variable to track bot start time for uptime
+bot_start_time = datetime.datetime.now()
+
+# 🕰️ Function to calculate bot uptime ˏˋ°•*⁀➷ˏˋ°•*⁀➷ˏˋ°•*⁀➷ˏˋ°•*⁀➷ˏˋ°•*⁀➷ˏˋ°•*⁀➷ˏˋ°•*⁀➷
+def get_uptime():
+    uptime = datetime.datetime.now() - bot_start_time
+    return str(uptime).split('.')[0]  # Format uptime to exclude microseconds ˏˋ°•*⁀➷ˏˋ°•*⁀➷
+
+# 💬 Command handler for /uptime. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁
+@bot.message_handler(commands=['uptime'])
+def uptime(message):
+    log_command(message.from_user.id, '/uptime')
+    bot.send_message(message.chat.id, f"⏱️ Bot Uptime: {get_uptime()}")
+    
+
 # Function to read user IDs from the file
 def read_users():
     try:
