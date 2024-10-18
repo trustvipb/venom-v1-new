@@ -31,6 +31,12 @@ def get_uptime():
 def uptime(message):
     log_command(message.from_user.id, '/uptime')
     bot.send_message(message.chat.id, f"⏱️ Bot Uptime: {get_uptime()}")
+
+# 💬 Command handler for /uptime. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁. ݁₊ ⊹ . ݁˖ . ݁
+@bot.message_handler(commands=['uptime'])
+def uptime(message):
+    log_command(message.from_user.id, 'uptime')
+    bot.send_message(message.chat.id, f"⏱️ Bot Uptime: {get_uptime()}")
     
 
 # Function to read user IDs from the file
